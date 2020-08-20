@@ -1,0 +1,129 @@
+uninformed search 
+
+complete- search that finds a solution (if one exists) 
+optimal- finds the best solution 
+
+state- problem state (e.g. "Arad")
+node-has a state, a parent, possibly children, possibly cost (e.g. "Arad", "Sibiu", 220)
+
+branching factor- number of child nodes per parent node
+
+depth- distance from root to deepest node 
+
+
+big O and trees 
+
+given a branching factor of b and a depth m, how many nodes are in the tree? 
+
+depth 0, 1 node 
+depth 1, b nodes 
+depth 2, b^2 nodes
+depth 3, b^3 nodes 
+....
+depth m, b^m 
+
+Total number of nodes 
+1 + b + b^2 + b^3 + ... + b^m = (1-b^(m+1))/(1-b) 
+O(b^m)
+
+tree search 
+frontier = {root}
+while no solution and frontier is not empty
+	curNode = frontier.getNode()
+	check if it's the solution 
+	add children of curNode to frontier 
+	
+
+graph search (don't repeat states) 
+Collection<Node> frontier = {root}
+Collection<State> visited = {root}
+while no solution and frontier is not empty
+	curNode = frontier.getNode()
+	
+	check if it's the solution 
+	for child in children of curNode 
+		
+		if child is not in visited 
+			frontier.add(child) 
+		visited.add(child)
+	
+What data structure is frontier?
+stack- depth first search 
+complete? depends if its graph (yes) or tree (no, could get in an infinite loop)
+Arad, Sibiu, Arad, Sibiu, Arad, Sibiu, ...
+optimal? 
+no 
+space? 
+O(bm) 
+speed? 
+O(b^m) 
+
+queue- breadth first search 
+complete?
+yes 
+optimal? 
+yes 
+space? 
+O(b^(m-1))
+speed?
+O(b^m) 
+
+depth limited search- depth first search, but stop if you hit a particular depth d 
+complete? 
+yes if d>=m, no generally 
+optimal? 
+no 
+space?
+O(bd)
+speed?
+O(b^d) 
+
+iterative deepening 
+do a depth limited search.  If it fails, increase depth by 1.
+DLS(1), then DLS(2), then DLS(3), ... , DLS(m)
+complete? 
+yes 
+optimal? 
+yes 
+space?
+O(m) 
+speed? 
+O(b^m)
+
+DLS(0) takes 1
+DLS(1) takes b
+DLS(2) takes b^2 
+DLS(3) takes b^3
+....
+DLS(m) takes b^m 
+1+b+b^2+b^3+...+b^m=O(b^m)
+
+
+priority queue (ordered by current cost)- uniform cost 
+(same issues as bfs) 
+
+	
+puzzle 
+https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/fifteen.html
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
