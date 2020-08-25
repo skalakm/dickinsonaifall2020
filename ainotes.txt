@@ -106,14 +106,103 @@ priority queue (ordered by current cost)- uniform cost
 puzzle 
 https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/fifteen.html
 
+
+frontier = {initial node}
+explored = {}
+while frontier isn't empty:
+	choose a node N from the frontier, return N if it's a solution
+		bfs, queue
+		dfs, stack
+		uniform cost, priority queue ranked on current distance 
+	expand N
+		add new nodes to the frontier 
+			(don't add nodes already explored)
+		depth limited: don't expand if past depth 
 	
 	
+if frontier is empty, return fail
+
+
+arad to bucharest 
+
+bfs 
+arad 
+
+sibiu (arad)
+timisoara (arad)
+zerind (arad)
+
+fagaras (sibiu)
+oradea (sibiu)
+rimnicu vilcea (sibiu)
+lugoj (timosoara) 
+
+bucharest (fagaras)
+pitesti (rimnicu vilcea)
+craiova (rimnicu vilcea)
+mehadia (lugoj)
+
+expand bucharest (found solution) 
+found the shortest path in nodes, not in distance 
+
+dfs 
+
+cur node			stack 
+					arad 
+arad				zerind, timisoara, sibiu
+zerind (arad)		oradea, timisoara, sibiu
+oradea	(arad)		timisoara, sibiu
+timisoara (arad)	lugoj, sibiu 
+lugoj (timi)		mehadia, sibiu 
+mehadia	(lugoj)		dobreta, sibiu 
+dobreta (mehadia)	craiova, sibiu 
+craiova (dobreta)	rimnicu vilcea, pitesti, sibiu
+rimnicu vilcea 		pitesti, sibiu
+pitesti				bucharest, sibiu 
+bucharest			sibiu
+
+
+we can implement dfs and bfs as special cases of uniform cost 
+bfs: cost is number of nodes visited 
+dfs: cost is -(number of nodes visited) 
+
+
+uniform cost 	priority queue
+				(arad, 0)
+(arad, 0)		(sibiu, 140), (timisoara, 118), (zerind, 75)
+(zerind, 75)	(oradea, 71+75=146), (sibiu, 140), (timisoara, 118)
+(timisoara, 118) (lugoj, 118+111=229), (oradea, 146), (sibiu, 140)
+(sibiu, 140)	(lugoj, 229), (oradea, 146), (rv, 220), (fagaras, 239)
+(oradea, 146)	(lugoj, 229), (rv, 220), (fagaras, 239)
+(rv, 220)		(lugoj, 229), (pitesti, 317), (craiova, 366),(fagaras, 239)
 	
 	
+current node		priority queue 
+					(s, 0)
+(s, 0)				(a, 1), (b,2)
+(a, 1)				(b,2), (c,4)
+(b,2)				(c,3), (c,4)
+(c,3)				(c,4), (t,4)
+(c,4) ignore		(t,4)
+(t,4)
 	
+Either, you need a way to update nodes in the priority queue, or add a new node with the same state (and deal with extra node when it comes off).	
+
+
+A* search 
+priority queue search 
+f - evaluation function
+g - cost function 
+
+f = g -> uniform cost 
+
+h - heuristic function (guess at the distance to the goal) 
+
+A*
+f = g + h 
 	
-	
-	
+greedy best first search 
+f = h 	
 
 	
 	
