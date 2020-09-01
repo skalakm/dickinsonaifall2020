@@ -206,13 +206,89 @@ f = h
 
 	
 	
+eights puzzle 
+g - total tiles move to this point 
+
+h - number of tiles out of place 
+h - how far each tile is from correct spot
+	pretend you can move tiles on top of other tiles 
 	
 	
 	
 	
 	
-	
-	
-	
-	
+turing test
+
+thinks a computer needs 10^9 memory/hard drive to imitate a human 
+
+can computer convince a human that it's human? 
+text message window, human is allowed to ask questions of the machine (?) and then has to say if it's human or a computer. 
+
+
+human is talking to A 
+
+"A" might be a human or a computer.  
+
+depends on the tester 
+
+captchas are reverse turing tests.  
+
+
+1. Theological
+Humans are divinely gifted. 
+
+2. Head in the sand
+I really hope computers can't do this.
+
+3. Mathematical objection
+There are things a computer provably cannot do.
+
+e.g.
+Find all bugs in a program.
+Tell if a program halts.  
+
+4. Consciousness
+Computers can't be conscious.  
+
+5. Disability
+Computers aren't able to do X.
+Computers are necessarily specialized to a particular task.
+Computers don't make mistakes.  
+
+6. Computers can't do anything they are not programmed.
+
+7. Nervous system is continuous, computers are discrete.  
+
+8. Behavior is informal/ not guided by rules.
+
+9. ESP- extra sensory perception 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
