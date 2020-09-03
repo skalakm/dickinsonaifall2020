@@ -267,18 +267,80 @@ Computers don't make mistakes.
 
 
 
+Games
+
+chess
+go/baduk/weiqui ~361!
+checkers
+tic tac toe
+othello
+mancala
+shogi
+xianqi
+connect4 
+gomoku
+
+
+two player games
+deteriministic (no random elements) 
+complete information (no hidden information)
+discrete
+zero sum (one winner, one loser)
 
 
 
+maxPlayer(curState)
+	if curState is terminal
+		return value
+	else
+		best = -1000000
+		for each childState
+			best = max(best, minPlayer(childState) )
+
+		return best
+
+minPlayer(curState)
+	if curState is terminal
+		return value
+	else
+		best = 1000000
+		for each childState
+			best = min(best, maxPlayer(childState) )
+
+		return best
+		
+findMoveMax(state)
+	bestMove = null
+	bestVal = -10000
+	for each move 
+		curVal = minPlayer(childState)
+		if(curVal > bestVal)
+			bestMove = move
+			bestVal = curVal 
+	return bestMove 
+
+This solves all games of this type, but the tree is too big for everything but tic tac toe.  
+
+New plan: try to figure out if we are winning without searching the entire tree.  
+
+
+maxPlayer(curState, depthLeft)
+	if curState is terminal
+		return value 
+	elif depthLeft = 0
+		return staticEvaluation(curState)
+	else
+		best = -1000000
+		for each childState
+			best = max(best, minPlayer(childState, depthLeft-1) )
+
+		return best
 
 
 
-
-
-
-
-
-
+What is a static evaluation?
+A relatively fast way of assigning a value to a state. 
+In chess, a simple one is you count up the pieces each side has.  (A slightly more complex one assigns values to each piece type).  
 
 
 
