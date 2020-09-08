@@ -344,6 +344,72 @@ In chess, a simple one is you count up the pieces each side has.  (A slightly mo
 
 
 
+alpha is what the max player can guarantee
+beta is what the min can guarantee 
+initially alpha = -infinity, beta = infinity 
+maxPlayer(curState, depthLeft, alpha, beta)
+	if curState is terminal
+		return value 
+	elif depthLeft = 0
+		return staticEvaluation(curState)
+	else
+		for each childState
+			
+			curValue = minPlayer(childState, depthLeft-1, alpha, beta)
+			if(curValue >= beta) // if we can do better than beta, min player will not let us get here
+				return curValue  // this value doesnt really matter 
+			if curValue > alpha // if we can guarantee we do better than previously known, update it 
+				alpha = curValue 
+
+		return alpha 
+
+
+alpha is what the max player can guarantee
+beta is what the min can guarantee 
+initially alpha = -infinity, beta = infinity 
+minPlayer(curState, depthLeft, alpha, beta)
+	if curState is terminal
+		return value 
+	elif depthLeft = 0
+		return staticEvaluation(curState)
+	else
+		for each childState
+			
+			curValue = maxPlayer(childState, depthLeft-1, alpha, beta)
+			if(curValue <= alpha) // if we can do better than alpha, max player will not let us get here
+				return curValue  // this value doesnt really matter 
+			if curValue < beta // if we can guarantee we do better than previously known, update it 
+				beta = curValue 
+
+		return beta 
+
+
+assuming we are the max player 
+negaMax(curState, depthLeft, alpha, beta)
+	if curState is terminal
+		return value 
+	elif depthLeft = 0
+		return staticEvaluation(curState)
+	else
+		for each childState
+			curValue = -negaMax(childState, depthLeft-1, -beta, -alpha)
+			if(curValue >= beta) // if we can do better than beta, min player will not let us get here
+				return curValue  // this value doesnt really matter 
+			if curValue > alpha // if we can guarantee we do better than previously known, update it 
+				alpha = curValue 
+	return alpha 
+
+
+How much faster is this?
+It depends on the order moves are considered.
+Minimax is b^d.
+If the moves are considered in best to worst order, b^(d/2)
+If the moves are considered worst to best, it's b^d. 
+If the moves are random, it's b^(3d/4)
+
+If we knew which moves were best, we wouldn't have to do this in the first place.  
+One of the places where cleverness comes in is what order to try moves.  Try moves that are usually good first.  It sometimes can be worth it to do a small depth search in order to sort the moves for a large depth search.  
+
 
 
 
