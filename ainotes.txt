@@ -415,6 +415,87 @@ One of the places where cleverness comes in is what order to try moves.  Try mov
 
 
 
+two player games
+complete information (no hidden information)
+discrete
+zero sum (one winner, one loser)
+
+Add in random elements, e.g. card games (without secret hands), dice, dominoes, 
+
+
+
+expected value: the average result from a random occurence 
+
+For example, roll one die.
+
+1  1/6
+2  1/6
+3  1/6 
+4  1/6
+5  1/6
+6  1/6 
+
+Expected value of one die is 1/6 *1 + 1/6 * 2 + 1/6 * 3 + 1/6 * 4 + 1/6 * 5 + 1/6 * 6 = 3.5
+
+Expected value of two dice is 1/36 * 2 + 2/36 * 3 + 3/36 *4 +... + 1/36*12 = 7
+11
+12
+13
+14
+15
+16
+21
+22
+23
+24
+25
+26
+
+
+What is the expected value of the square of the result of rolling one die?  
+
+1/6 * 1 + 1/6 * 4 + 1/6*9 + 1/6*16 + 1/6 *25 + 1/6*36 = 91/6
+
+
+2 biased coins.  Chance of heads is .3 on each coin.  You get $3 per heads.  What is the expected payout?
+
+TH  .7*.3  *  3 = .63
+HT  .3*.7  *  3 = .63
+TT  .7*.7  *  0 = 0
+HH  .3*.3  *  6 = .54
+.63+.63+.54=1.8 
+
+
+Solving a stochastic game: (stochastic means nondeterminstic/random)
+1. Add chance nodes to our tree (as well as max and min).  
+2. At chance nodes, compute the expected value.  
+
+
+
+Problems:
+1. Often, random events create large branching factors.  
+2. If we cut off at a depth, our static evaluation has to not just order states, but give an estimation of winning percentage.  
+3. Alpha beta can still work, but it's more complicated.  
+
+
+a .9 4, .1 5   = 4.1
+b .8 2, .2 20  = 5.6
+c .8 2, .2 6   = 2.8 
+
+
+Solution (?):  Instead of calculating the expected value, we estimate it.   Pick a random sample and calculate it.  Effectively, roll the die.  Monte Carlo search/simulation.  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
