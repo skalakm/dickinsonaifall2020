@@ -488,6 +488,192 @@ Solution (?):  Instead of calculating the expected value, we estimate it.   Pick
 
 
 
+mancala
+
+min max perspective
+bottom player is always max 
+	pro don't have to adjust static evaluator/some other related things 
+	con get move sometimes will ask for the top 
+	
+get move is always max 
+	pro get move is always max, so can be simpler
+	con have to adjust static evalutor based on whose turn it is originally 
+	
+max player changes in recursive calls
+	pro can make single minMax function, static evaluator is always in terms of current player 
+	con minMax function is a little more complicated  
+
+
+Double.MIN_VALUE is the smallest nonzero positive value -Double.MAX_VALUE
+Integer.MIN_VALUE is the most negative value  
+Integer.MIN_VALUE -1 == Integer.MAX_VALUE 
+Integer.MIN_VALUE + Integer.MAX_VALUE  = -1
+
+
+
+Setup
+
+We have a graph, but with no known properties.  
+Each node has a particular value associated with it.
+We want to find the node with the highest value.  
+
+n-queens
+Arrange n-queens on an nxn board so that no two attack each other (no same row, no same column, no diagonal)
+
+4-queens
+
+qxxx
+xxqx
+xxxq
+xqxx
+fail
+
+place queen in each column.  If a queen doesn't work, remove it and try again.  
+
+qxxx
+xxxx
+xxxx
+xxxx
+
+qqxx
+xxxx
+xxxx
+xxxx
+fail 
+
+qxxx
+xqxx
+xxxx
+xxxx
+fail 
+
+qxxx
+xxxx
+xqxx
+xxxx
+
+qxqx
+xxxx
+xqxx
+xxxx
+fail 
+
+qxxx
+xxqx
+xqxx
+xxxx
+fail  
+
+This is the recursive backtracking way.  
+
+
+Nodes- states of board 
+Edges- states are connected iff they differ by one queen 
+value of board- 1 iff all the queens don't attack each other, 0 otherwise  
+
+Recursive backtracking always works (eventually).  
+
+hill climbing-
+Place n queens on the board so that no two are in same column or row. 
+Check if swapping any two of them makes the situation better.  Choose the one that improves it the most.  
+
+Nodes- states 
+Edges- states are connected if they differ by one swap 
+value- number of non attacking queens  
+
+Pro- Takes at most n steps 
+problem- It won't always work.  It's possible that no move makes the situation better.  (local maximum) 
+
+solution- restart with a random position 
+This will probably find the global maximum (or at least close enough).  
+
+
+Example
+
+qxxx
+xqxx
+xxqx
+xxxq
+6 mutually attacking pairs 
+
+xqxx
+qxxx
+xxqx
+xxxq
+2
+
+xxqx
+xqxx
+qxxx
+xxxq
+4
+
+xxxq
+xqxx
+xxqx
+qxxx
+2
+
+qxxx
+xxqx
+xqxx
+xxxq
+2
+
+qxxx
+xxxq
+xxqx
+xqxx
+4
+ac 
+bc
+bd 
+cd 
+
+qxxx
+xqxx
+xxxq
+xxqx
+2
+
+(0,1,3,2)
+
+
+What if we have continuous search space?  ie state is a vector 
+
+Jump factor/epsilon
+
+Next state generating plan: add/subtract epsilon to one element of the vector 
+
+simulated annealing- Start with epsilon large, decrease it as the algorithm progresses.  
+
+(hemoglobin, height, weight, test result a, ...)
+
+
+------------------------------------
+genetic algorithms 
+
+pro doesnt get stuck in a local maximum, might be better for large input dimensions 
+con tends to be more computationally intensive, less predictable, less reproduceable (randomness)
+
+
+
+Questions you should be thinking about
+
+Does David pass the Turing Test?
+
+In what ways does he seem not like a normal child (both in actions and in how others treat him)?
+
+In what ways does he seem like a normal child?  
+
+
+
+
+
+
+
+
+
 
 
 
