@@ -667,6 +667,179 @@ In what ways does he seem not like a normal child (both in actions and in how ot
 In what ways does he seem like a normal child?  
 
 
+1.00	12.0	12.0	Undefeated and Untied
+0.92	11.0	12.0	JessieMaxDeathmatch
+0.75	9.0	12.0	HeuristicPlayer
+0.75	9.0	12.0	Mancala Cage Match player
+0.67	8.0	12.0	alex
+0.67	8.0	12.0	Boo
+0.50	6.0	12.0	NearRandom
+0.42	5.0	12.0	theShaker
+0.33	4.0	12.0	MDMancalaPlayer
+0.25	3.0	12.0	OneMove
+0.17	2.0	12.0	AEDaBest
+0.08	1.0	12.0	Random
+0.00	0.0	12.0	RRandom
+
+
+w%	wins	games	name
+1.00	5.0	5.0	Undefeated and Untied
+0.80	4.0	5.0	alex
+0.60	3.0	5.0	Boo
+0.40	2.0	5.0	HeuristicPlayer
+0.20	1.0	5.0	JessieMaxDeathmatch
+0.00	0.0	5.0	Mancala Cage Match player
+
+
+
+
+Let n, the board size, be an even number. Let A's strategy be "always move forwards".  When it is A's turn, the distance between them is always odd before any jumping.  B can move backwards at most half the time because otherwise it would move off the board, so eventually the distance between them becomes 1.  At this point, A jumps B.  Since A has always moved forward and A has moved forward 2 steps by jumping, it must be closer to its endpoint than B is to its endpoint.  Therefore A reaches the endpoint before B does.  
+
+
+rated rulers on aggressiveness 
+0-10, 0 is very peaceful, 10 is very aggressive 
+
+Gandhi was a 1.  When a civ adopted democracy, aggressiveness was reduced by 2.  1-2=255
+
+
+
+
+propositional logic 
+
+This is use a lot.
+program correctness- how do you prove a program works? 
+testing?/test coverage- cannot prove it works because we cannot test every option 
+
+pacemakers and airplane code 
+
+int x =2;
+
+x = x +4;
+if(x > 3)
+x++;
+
+prove x = 7
+
+
+
+atomic sentences- statements that are true or false  
+
+B="Col Mustard is the murderer" 
+A="The murder was with the rope"
+
+A model assigns values (true or false) to each atomic statement. 
+A is True, B is False 
+
+A&&B (conjunction)
+!A  (negation)
+B||!A (disjunction)
+A->B (implication)  
+
+A (complex) sentence is a legitimate combination of symbols.  (legitimate means it compiles)
+A &&( B || C) -> D 
+
+&& and 
+|| or 
+!  not 
+-> implies 
+<-> if and only if, dual implication 
+
+
+Two sentences are logically equivalent if they are true in exactly the same set of models.  
+
+
+A sentence is valid (or a tautology) if it is true in all models. 
+P || !P 
+(P&& (P->Q) )-> Q 
+
+satisfiable if there exists a model where it's true 
+P&&Q is satisfiable, but not valid 
+
+unsatisfiable if it is not true in any model 
+P && !P 
+
+
+deMorgan 
+!(P&&Q) is equivalent !P || !Q 
+
+implication elimination 
+P->Q is equivalent to !P||Q 
+
+iff 
+(P<->Q) is equivalent to (P->Q) && (Q->P)
+
+distributivity 
+P && ( Q || R) is equivalent to (P&&Q)||(P&&R) 
+P || (Q&&R) is equivalent to (P||Q) && (P||R) 
+
+a) (P<->Q) && (P->!Q) (satisfiable) Q is false, P is false 
+b) (P||Q) && !Q (satisfiable) Q is false, P is true 
+Say if these are satisfiable, valid, or unsatisfiable
+
+
+
+clause- the "or" of a set of atomic sentences (with possible negations) 
+P||Q
+P||!Q 
+!P||R||Q 
+
+
+A sentence is in conjunctive normal form iff it is the "and" of some clauses 
+(P||Q)&&(P||!Q)&&(!P||R||Q) 
+
+Any sentence can be converted to CNF (in linear time)
+1. Eliminate <-> 
+2. Eliminate -> 
+3. Move ! inwards. 
+4. Distribute || over &&. 
+
+
+P <-> (Q&& R)
+
+1. (P-> (Q&& R)) && (Q&&R->P) 
+2. (!P || (Q&& R)) && ( !(Q&&R) || P)
+3. (!P || (Q&&R) ) && ( !Q || !R || P) 
+4. (!P||Q) &&( !P ||R) && (!Q||!R||P)
+
+
+A knowledge base (KB) is a set of statements known to be true.  (Could combine into a single statement with and).  
+
+KB= {P, P->Q, !R, S&&T } 
+
+Inference rules- ways of adding to the knowledge base.
+
+"and elimination"- if A&&B are in the KB, then we can add A to the knowledge base.  
+If A&&B are in the KB, then we can add B to the knowledge base.  
+
+KB= {P, P->Q, !R, S&&T, S, T} 
+
+"modus ponens"- If A and A->B are in the KB, then we can add B to the KB.  
+
+KB= {P, P->Q, !R, S&&T, S, T, Q} 
+
+"resolution"
+
+P||Q, R||!Q, then we can add P||R.
+
+P||Q||!R||S, Q||R||T||!U 
+We see !R on one side, R on the other side. 
+This makes P||Q||S||T||!U.
+
+KB = {P||!Q, !P||R||!S, S||T} 
+P||!Q, !P||R||!S makes !Q||R||!S. 
+
+!P||R||!S, S||T makes !P||R||T
+
+KB = {P||!Q, !P||R||!S, S||T, !P||R||T, !Q||R||!S} 
+S||T, !Q||R||!S makes T||!Q||R 
+P||!Q,!P||R||T makes !Q||R||T 
+
+KB = {P||!Q, !P||R||!S, S||T, !P||R||T, !Q||R||!S, T||!Q||R } 
+
+
+P->Q is the same as !P || Q 
+KB = {P, !P||Q} 
+P, !P||Q makes Q 
 
 
 
