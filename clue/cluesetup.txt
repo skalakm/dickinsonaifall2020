@@ -1,0 +1,6 @@
+Setup instructions
+
+1. Make an eclipse project.
+2. Add ClueReasoner.java and SATSolver.java
+3. Put zchaff in the base directory of the project.
+4. Compile and run SATSolver.java and make sure it works.
