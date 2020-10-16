@@ -893,6 +893,59 @@ for each card c
 	(repeat for other players) 
 	
 	
+First order logic 
+(prolog) 
+
+for all cards c, there exists a location where c is.
+
+for all- universal quantifier 
+there exists- existential quantifier 
+
+relation- r(x,y)
+boolean functions, boolean statements 
+
+father(prof skalak, gregory).
+
+for all x, there exists a y s.t. father(y,x). 
+
+
+Inference in first order logic 
+1. Substitutions
+
+notation subst({x|A}, alpha)
+Replace x with A in the sentence alpha.  
+
+subst( {x|John, y|mother(John)}, knows(x,y))
+becomes knows(John, mother(John))
+
+subst( {x|z, y|z}, knows(x,y))
+becomes knows(z,z).
+
+for all x,y,z, (knows(x,y) and knows(y,z)) implies knows(x,z)
+knows(jessie, alex).
+knows(alex, iris).
+
+substitute 
+({x|jessie, y|alex, z|iris}, for all x,y,z, (knows(x,y) and knows(y,z)) implies knows(x,z))
+becomes 
+knows(jessie,alex) and knows(alex,iris) implies knows(jessie,iris)
+
+
+2. propositionalization- converting first order logic into propositional logic 
+
+FOL 
+for every student s in the ai class, csmajor(s)
+
+universal instantiation-
+replacing a universal with an 'and' clause (or alternatively several clauses)
+csmajor(jessie) and csmajor(beverly) and csmajor(anthony) ... and csmajor(lan)
+
+
+
+
+
+
+
 
 
 
