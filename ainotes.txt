@@ -940,18 +940,138 @@ universal instantiation-
 replacing a universal with an 'and' clause (or alternatively several clauses)
 csmajor(jessie) and csmajor(beverly) and csmajor(anthony) ... and csmajor(lan)
 
+existential instantiation- 
+replacing a existential with an 'or' clause 
+
+there exists a student s in the ai class s.t. graduating(2021,s)
+graduating(2021, jessie) or graduating(2021, mike) or ... or graduating(2021, seongho)
+
+replace an existential with a dummy variable
+graduating(2021, someone)
+
+
+propositionalization
+pros are- always works for finite sets
+cons-
+1. KB gets huge.  It's better to do the reasoning directly in FOL.  Book has resolution for FOL.  
+2. Functions lead to infinitely many substitutions. 
+father(x), father(father(x)), father(father(father(x))))
+semidecidable- Algorithms can prove entailed statements, but cannot always prove that statements are false.  
+
+complete- 
+every valid statement has a proof 
+
+decidable- there exists an algorithm that decides whether or not a given statement is valid 
+
+							complete				decidable
+prop logic 					yes, use resolution		yes, use resolution
+fol							yes, goedel				no, turing/church
+arithmetic (fol+induction)	no, goedel				no, turing/church
 
 
 
+3 points 
+Lan
+Raph
+Beverly/Khanh
+Jessie/Mike 
+Max 
+
+Seongho
+Alex/Hieu
+Zolboo/Iris 
+Elly/Anthony
 
 
 
+Part A
+
+A0 - Caterpillar ate the salt 
+A1 - Bill ate the salt 
+A2 - Cat ate the salt 
+B0 - Caterpillar told the truth 
+B1 - Bill told the truth 
+B2 - Cat told the truth 
+
+A0 | A1 | A2 
+
+A0 -> !(A1 | A2)
+A1 -> !(A0 | A2)
+A2 -> !(A1 | A0)
+
+A1 | !B0  could be B0 -> A1 
+A1 | !B1 
+!A2 | !B2 
+
+B0 | B1 | B2 
+!B0 | !B1 | !B2  
+
+Part B 
+A0 -> !(A1 | A2)
+!A0 | !(A1 | A2)
+!A0 | (!A1 & !A2)
+(!A0 | !A1)& (!A0 | !A2)
+(!A0 | !A1), (!A0 | !A2)
 
 
 
+A0 | A1 | A2 
+
+
+(!A0 | !A1), (!A0 | !A2)
+(!A1 | !A0), (!A1 | !A2)
+(!A0 | !A2), (!A1 | !A2)
+
+(!A0 | !A1)
+(!A1 | !A2)
+(!A0 | !A2)
+
+A1 | !B0 
+A1 | !B1 
+!A2 | !B2 
+
+B0 | B1 | B2 
+!B0 | !B1 | !B2  
+
+
+Final CNF 
+
+1. A0 | A1 | A2 
+2. !A0 | !A1
+3. !A1 | !A2
+4. !A0 | !A2
+5. A1 | !B0 
+6. A1 | !B1 
+7. !A2 | !B2 
+8. B0 | B1 | B2 
+9. !B0 | !B1 | !B2  
+
+Part C- Resolution
+
+10. 1 and 3-> A0 | A1 | !A1 
+11. 5 and 2-> !A0 | !B0 
+12. 1 and 3-> A0 | A2 | !A2 
+13. 7 and 8 -> !A2 | B0 | B1 
+14. 
+
+Assert !A0.  Run resolution/solver and see if it's satisfiable.  
 
 
 
+Testing A1 
+If you put in A1 and its satisfiable, that means A1 might be true.  If you get unsatsifiable, then A1 is false.  
+
+Adding A1 makes it unsatisfiable. -> A1 is not true.
+Adding !A1 makes it unknown.  -> A1 might be false. 
+-> !A! 
+
+Adding C1 makes it unknown. -> C1 might be true.
+Adding !C1 makes it unknown. -> C1 might be false.  
+-> C1 could be true or false.  
+
+Adding C1 makes it unsatisfiable. -> C1 is not true.
+Adding !C1 makes it unsatisfiable. -> C1 is not false
+-> The system is unsatisfiable.  
 
 
 
