@@ -1074,5 +1074,55 @@ Adding !C1 makes it unsatisfiable. -> C1 is not false
 -> The system is unsatisfiable.  
 
 
+A - Unicorn is mythical
+B - Mortal 
+C - Mammal 
+D - Horned 
+E - Magical  
 
-	
+A -> !B
+!A -> (B & C)
+(!B | C) -> D 
+D -> E 
+
+
+!D | (A&!B&!C) | (!A&B&!C) | (!A&!B&C)
+
+!D | A | !A | !A (nothing)
+!D | A | !A | !B  x 
+!D | A | !A | C  x 
+!D | A | B | !A x 
+!D | A | B | !B x 
+!D | A | B | C 
+!D | A | !C | !A x 
+!D | A | !C | !B  
+!D | A | !C | C x 
+
+!D | !B | !A | !A 
+!D | !B | !A | !B 
+!D | !B | !A | C
+!D | !B | B | !A x 
+!D | !B | B | !B x 
+!D | !B | B | C  x 
+!D | !B | !C | !A 
+!D | !B | !C | !B 
+!D | !B | !C | C x 
+
+!D | !C | !A | !A 
+!D | !C | !A | !B 
+!D | !C | !A | C x 
+!D | !C | B | !A 
+!D | !C | B | !B x 
+!D | !C | B | C x  
+!D | !C | !C | !A 
+!D | !C | !C | !B 
+!D | !C | !C | C x  
+
+
+!D | A | B | C 
+!D | A | !C | !B  
+!D | !B | !A | C
+!D | !B | !C | !A 
+!D | !B | !C 
+!D | !C | !A 
+!D | !C | B | !A 
