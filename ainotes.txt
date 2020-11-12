@@ -1126,3 +1126,93 @@ D -> E
 !D | !B | !C 
 !D | !C | !A 
 !D | !C | B | !A 
+
+
+
+Quiet 
+
+1/2 w, 1/2 m 
+
+
+p(x) * lg (1/p(x))
+1/2 * lg (1 / (1/2)) = 1/2 for wood 
+1/2 * lg (1 / (1/2)) = 1/2 for metal 
+So total entropy is 1/2+1/2= 1 
+
+
+
+
+
+outsider who speaks chinese
+
+
+
+(person in room who doesn't speak chinese, but has a big book that tells him what to respond to any chinese sentence)
+
+ 
+
+
+
+I will post the final project assignment and the decision tree assignment.
+
+No final exam.  I will post a neural net activity with the tensor flow playground.  
+
+
+
+Searle 
+
+Strong ai 
+
+Gedankenexperiment
+
+
+1. Humans have intentionality. 
+
+2. A computer program does not necessarily have intentionality, no matter what it's outward appearence. (A system can produce human like responses without intentionality.)
+A computer cannot add, it can only take inputs, perform operations, and generate output.
+
+chinese room thought experiment  
+
+A computer seems like it adds.  But it just manipulates symbols that we interpret as addition.  -1=111111111...1111 
+
+Symbolic manipulation is not understanding.  
+
+
+3. Humans do not run a program to have intentionality. 
+
+4. Anything that has intentionality is basically a brain.  
+
+5. Programs cannot have intentionality.  
+
+
+Does it matter?
+Nothing we create is actually conscious.  
+
+(We can't be sure humans are conscious under these terms either.)
+
+Response from most ai researchers would be: We are only interested in inputs and outputs.  We don't care what mental states are.  Your an idiot philopher who doesn't do anyithng. 
+
+
+System reply
+"stomach, heart, liver all have understanding"
+
+robot reply 
+
+brain simulator reply 
+
+other minds 
+
+
+What would Turing say to this argument?
+What would be your test for intentionality?  argument from consciousness
+
+
+
+
+Searle addresses several replies to his argument.  Which do you think is the strongest?  
+Since we can't test for consciousness I will assume humans are different.  
+
+Searle says that consciousness is not a physical state but a metaphysical state.
+
+
+

@@ -1,0 +1,30 @@
+Neural Net activity
+
+1. Start with the initial setup.  Push Play.  After 50 epochs, what is your test loss and training loss? 
+
+
+2. Run it until about 250 epochs.  What is your test loss and training loss?
+
+
+3.  Hypothesize what would happen if you decrease the ratio of training to test data to 20%.  Specifically, state what you think will happen to the test loss and training loss and why.  
+
+4. What actually happens?  
+
+
+5.  Reset it to 50%.  Reduce the number of hidden layers to 0 and run it until it converges.  What is the training/testing loss?  Why?
+
+6.  Switch the data set to the second one (it has blue in the upper right and lower left corners).  Run it until it converges.  What is the training/testing loss? 
+
+7. Increase the hidden layers to 8 neurons each and run it until it converges.  What is the training/testing loss?  Explain why the increase in neurons had this effect.  
+
+8.  Change the data to the spiral set and reset the hidden layers to 4 and 2.  Run it for about 1000 epochs.  Give the training/testing loss, and describe the situation.  
+
+9.  Increase the hidden layers to 8 neurons each and run it for about 1000 epochs.  Give the training/testing loss, and describe the situation in comparison to question 8.  
+
+10.  Add the sin(x1) and sin(x2) inputs and run it for 1000 epochs.  Describe the results.
+
+11.  Change the data set back to the initial one and the layers back to 4 and 2, with the sin inputs still added.  Reduce the training to test to 10%.  Run it until it converges.  What are the training/test losses?
+
+12.  Remove the sin inputs and run it again.  How does it change the training/test losses?  Why?  
+
+13.  Devise your own experiment to demonstrate an AI concept.  Make sure to name the concept and carefully describe the experiment and the result.  
